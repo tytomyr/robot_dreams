@@ -6,8 +6,7 @@ from get_data_from_api import GetDataFromAPI
 
 def create_dir(path: Path = None) -> None:
     if os.path.exists(path):
-        if os.listdir(path):
-            shutil.rmtree(path)
+        shutil.rmtree(path)
     os.makedirs(path, exist_ok=True)
 
 
@@ -18,9 +17,9 @@ def create_file(path : Path = None, data: GetDataFromAPI = None) -> None:
 
 
 def data_to_disc(raw_dir : str = "raw_directory") -> None:
-    path = Path(__file__).parent.parent / raw_dir
     data = GetDataFromAPI()
     data.main()
+    path = Path(__file__).parent.parent / raw_dir / "sales" / f"{data.purchase_list[0]["purchase_date"]}"
     assert data.status_code == 200, f"Could not get data from API. Status code: {data.status_code}"
     create_dir(path)
     create_file(path, data)
