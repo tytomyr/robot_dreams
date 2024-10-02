@@ -12,7 +12,7 @@ def create_dir(path: Path = None) -> None:
 
 def create_file(path : Path = None, data: GetDataFromAPI = None) -> None:
     for number, file  in enumerate(data.purchase_list):
-        with open(path/f"sales_{file["purchase_date"]}_{number}.json", "w") as f:
+        with open(path/f"sales_{file["purchase_date"]}_{number + 1}.json", "w") as f:
             json.dump(file, f)
 
 
