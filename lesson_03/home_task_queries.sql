@@ -9,7 +9,7 @@ FROM film_category
 JOIN category ON film_category.category_id = category.category_id
 JOIN film ON film_category.film_id = film.film_id
 GROUP BY category.name
-ORDER BY number_of_films;
+ORDER BY number_of_films DESC;
 /*
 2.
 Вивести 10 акторів, чиї фільми брали на прокат найбільше.
