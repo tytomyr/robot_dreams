@@ -17,6 +17,6 @@ def create_file(path: Path, data: GetDataFromAPI) -> None:
 
 
 def main(raw_dir : str, data: GetDataFromAPI):
-    path = Path(__file__).parents[3] / "storage"/ raw_dir / "sales" / data.purchase_list[0]["purchase_date"]
+    path = Path(__file__).parents[3] / "storage"/ raw_dir
     create_dir(path=path)
     create_file(path=path, data=data)
