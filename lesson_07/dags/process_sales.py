@@ -29,7 +29,7 @@ with DAG(
     @task(task_id="extract_data_from_api")
     def extract_data_from_api():
         resp = requests.post(
-            url=f'http://localhost:{JOB1_PORT}/',
+            url=f'http://host.docker.internal:{JOB1_PORT}/',
             json={
                 "date": "2022-08-09",
                 "raw_dir": RAW_DIR
@@ -41,7 +41,7 @@ with DAG(
     @task(task_id="convert_to_avro")
     def convert_to_avro():
         resp = requests.post(
-            url=f'http://localhost:{JOB2_PORT}/',
+            url=f'http://host.docker.internal:{JOB2_PORT}/',
             json={
                 "raw_dir": RAW_DIR,
                 "stg_dir": STG_DIR
