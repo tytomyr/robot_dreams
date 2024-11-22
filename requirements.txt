@@ -5,3 +5,8 @@ itsdangerous==2.2.0
 Jinja2==3.1.4
 MarkupSafe==2.1.5
 Werkzeug==3.0.4
+
+pip~=24.2
+requests~=2.32.3
+pendulum~=3.0.0
+apache-airflow~=2.10.3
